@@ -1,0 +1,10 @@
+<template name="AppLayout">
+   {{> HeaderPharm}}
+   {{> TabMenu}}
+    {{ #if isInRole 'admin'}}
+    	<!--{{> AppNav}}-->
+    {{/if}} 
+    <main class="app-layout">
+        {{> Template.dynamic template=main}}
+    </main>
+</template>
