@@ -1,0 +1,56 @@
+<template name="Ordini">
+	{{#if ordineSelezionato}}
+	<div class="dettaglio-ordine-box {{visibile}}">
+		<h2>Ordine</h2>
+		<div class="close-ordine" style="float: right;">x</div>
+		<h3>Codice ordine: {{idOrdine}}</h3>
+		<div>Codice cliente: {{codCliente}}</div>
+		<div>Nome cliente: {{nomeCliente}}</div>
+		<div>Stato consegna: {{currentStatus}}</div>
+		<h3>Articoli ordinati</h3>
+		<div>
+			{{#each carrello}}
+				<div style="height: 100px;">
+					<img src="{{img}}" style="float: left; height: 100%;">
+					<div>x{{quantity}}</div>
+					<div>{{nome}}</div>
+					<div>{{formato}}</div>
+					<div style="float: right;">{{prezzo}} €</div>
+				</div>
+			{{/each}}
+		</div>
+		<button class="ordine-spedito">
+			{{#if daSpedire}}
+				Spedito
+			{{else}}
+				Segna come DA SPEDIRE
+			{{/if}}
+		</button>	
+	</div>
+	{{/if}}
+	<h1>Tutti gli ordini</h1>
+	<table style="width: 1200px; margin: 100px auto;">
+		<tr>
+			<th>id</th>
+			<th>cap</th>
+			<th>created at</th>
+			<th>user id</th>
+			<th>items</th>
+			<th>total</th>
+			<th>status</th>
+			<th></th>
+		</tr>
+		{{#each ordini}}
+		<tr>
+			<td>{{_id}}</td>
+			<td>{{cap}}</td>
+			<td>{{date}}</td>
+			<td>{{user}}</td>
+			<td>{{items}}</td>
+			<td>{{total}} €</td>
+			<td>{{status}}</td>
+			<td class="clickable" id={{_id}}>Visualizza ordine></td>
+		</tr>
+		{{/each}}
+	</table>
+</template>

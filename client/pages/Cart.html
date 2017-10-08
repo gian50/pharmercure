@@ -1,0 +1,23 @@
+<template name="Cart">
+	<div style="height: 100px"></div>
+	{{#each cart}}
+		{{> DrugInCart}}
+	{{/each}}
+	{{#if currentUser}}
+		<button class="inoltra-ordine-btn">Inoltra ordine</button>
+	{{else}}
+		<p>Loggati per effettuare l'ordine</p>
+	{{/if}}
+	<div class="conferma-ordine {{confermaOpen}}">Ordine effettuato con successo</div>
+</template>
+
+<template name="DrugInCart">
+	<div class="drug-cart-box">
+		<img src="{{img}}" class="cart-img">
+		<i class="close-icon green-close"></i>
+		<div style="color: green">x{{quantity}}</div>
+		<div class="dettaglio-name">{{nome}}</div>
+		<span class="dettaglio-format">{{formato}}</span>
+		<span class="dettaglio-prezzo">{{prezzo}} €</span>	
+	</div>
+</template>
