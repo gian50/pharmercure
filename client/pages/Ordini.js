@@ -1,8 +1,11 @@
 import './utilities.js';
 
 Template.Ordini.helpers({
-	ordini: function() {
-		return Ordini.find({}, { sort: { createdAt: -1 }} );
+	ordiniAttesa: function() {
+		return Ordini.find({status: 'In attesa'}, { sort: { createdAt: -1 }} );
+	},
+	ordiniSpediti: function() {
+		return Ordini.find({status: 'Spedito'}, { sort: { createdAt: -1 }} );
 	},
 	items: function () {
 		var items = 0;

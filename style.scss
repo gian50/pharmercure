@@ -312,21 +312,20 @@ table {
 }
 
 /*home*/
+
 .main-home-element {
     width:90%;
     margin-left: 5%;
 }
-
 .home-text {
     color: $blue;
-    width: 100%;
     text-align: center;
     margin-top: 100px;
 }
 
 .home-text-cap {
-    width: 250px;
-    margin: 0 auto 20px;
+    width: 70%;
+    margin: 15% auto 20px;
 }
 
 .cap-form {
@@ -338,6 +337,7 @@ table {
 
 input{
    text-align:center;
+   height: 45px;
 }
 
 /*header Pharm */
@@ -408,7 +408,7 @@ display: inline-block;
 
 #products-btns {
     z-index: 2;
-    width: 300px;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -463,7 +463,7 @@ display: inline-block;
 .tab-section {
     width: 33%;
     float: left;
-    height: 22px;
+    height: 70%;
     margin-top: 7px;
 }
 
@@ -487,9 +487,11 @@ display: inline-block;
 }
 
 .cart-tab {
-    height: 22px;
-    width: 90px;
+    height: 100%;
+    width: 90%;
     margin: auto auto;
+    padding-top: 4%;
+    padding-left: 17%;
 }
 
 .cart-icon {
@@ -691,5 +693,129 @@ display: inline-block;
     &.visible {
         opacity:1;
         z-index: 100;
+    }
+
+}
+
+@media screen and (min-width: 480px) {
+    .home-text {
+        font-size: 40px;
+    }
+    .open-list {
+        font-size: 40px;
+    }
+
+    .open-list input, button {
+        margin-top: 80px;
+        height: 100px;
+    }
+
+    #headerPharm-container {
+        height: 150px;
+    }
+
+    #header-logo {
+        height: 90%;
+        margin-left: -200px;
+    }
+    #header-logo img {
+        height: 100%;
+        margin-top: 2px;
+    }
+    
+    #tabMenu-container {
+        top: 150px;
+        height: 80px;
+        font-size: 20px;
+    }
+    #show-cap-bar {
+        margin: 220px auto 30px;
+        font-size: 33px;
+        height: 110px;
+    }
+
+    .tab-section {
+        margin-top:12px;
+        span {
+            font-size: 29px;
+            margin-right: 10px;
+        }
+    }
+
+    .drug-box {
+        height: 350px;
+        margin-bottom: 60px;
+    }
+
+    .drug-img {
+        height: 200px;
+    }
+
+    .drug-name {
+        font-size: 25px;
+    }
+
+    .products-title {
+        font-size: 35px;
+    }
+
+    .product-icon-box {
+        width: 264px;
+        height: 400px;
+    }
+
+    .drug-format {
+        font-size: 20px;
+    }
+
+    .drug-button {
+        width: 150px;
+        height: 50px;
+        margin-top: 15px;
+        margin-left: -75px;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 25px;
+    }
+
+    .dettaglio-name {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .dettaglio-format {
+       font-size: 20px;
+    }
+
+    .dettaglio-prezzo {
+        font-size: 33px;
+        top: -20px;
+    }
+
+    .dettaglio-descrizione {
+        height: 230px;
+        margin-top: 30px;
+        margin-bottom: 60px;
+    }
+
+    .add-to-cart-btn {
+        width: 50%;
+        padding: 20px;
+        font-size: 30px;
+    }
+
+    .quantity-selector {
+        width: 60px;
+        height: 60px;
+        border: solid 2px #61cc10;
+        border-radius: 30px;
+        font-size: 40px;
+        padding: 6px;
+    }
+
+    .quantity-number {
+        width: 50px;
+        margin-top: 10px;
+        font-size: 40px;
     }
 }

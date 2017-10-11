@@ -29,6 +29,7 @@
 	</div>
 	{{/if}}
 	<h1>Tutti gli ordini</h1>
+	<h2 style="font-size: 30px;">In attesa di spedizione</h2>
 	<table style="width: 1200px; margin: 100px auto;">
 		<tr>
 			<th>id</th>
@@ -40,7 +41,32 @@
 			<th>status</th>
 			<th></th>
 		</tr>
-		{{#each ordini}}
+		{{#each ordiniAttesa}}
+		<tr>
+			<td>{{_id}}</td>
+			<td>{{cap}}</td>
+			<td>{{date}}</td>
+			<td>{{user}}</td>
+			<td>{{items}}</td>
+			<td>{{total}} €</td>
+			<td>{{status}}</td>
+			<td class="clickable" id={{_id}}>Visualizza ordine></td>
+		</tr>
+		{{/each}}
+	</table>
+		<h2 style="font-size: 30px;">Ordini spediti</h2>
+		<table style="width: 1200px; margin: 100px auto;">
+		<tr>
+			<th>id</th>
+			<th>cap</th>
+			<th>created at</th>
+			<th>user id</th>
+			<th>items</th>
+			<th>total</th>
+			<th>status</th>
+			<th></th>
+		</tr>
+		{{#each ordiniSpediti}}
 		<tr>
 			<td>{{_id}}</td>
 			<td>{{cap}}</td>
