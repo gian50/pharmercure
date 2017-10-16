@@ -616,23 +616,25 @@ display: inline-block;
 }
 
 .cart-img {
-    max-height: 100%;
+    max-height: 90%;
     float:left;
+    margin-right: 20px;
 }
 
 .drug-cart-box {
-    height: 90px;
+    height:130px;
     border-bottom: solid 2px $lngrey;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 #continua-termina-box {
     position:fixed;
-    padding-top: 20px;
+    font-size: 30px;
+    padding: 40px;
     top: 35%;
     left: 10%;
     width: 80%;
-    height: 150px;
+    height: 300px;
     border-radius: 10px;
     border: solid 3px $green;
     background-color: #fff;
@@ -644,12 +646,12 @@ display: inline-block;
     }
 
     button {
-        width: 40%;
+        width: 43%;
         float: left;
         margin: 15px;
-        font-size: 14px;
+        font-size: 23px;
         font-weight: normal;
-        padding: 5px;
+        padding: 2px;
         border-radius: 10px;
     }
 }
