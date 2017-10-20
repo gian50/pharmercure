@@ -1,6 +1,11 @@
 <template name="HomeLayout">
   <!--  {{> Header}} -->
+  <div style= "position: absolute; top: 0;" class="account-icon-container login-toggle">
+		<span id="account-icon"></span><!-- <span style="float: right;">Ciao {{userName}}</span>-->
+	</div>
+	{{> LoginModal}}
     <main class="main-layout">
         {{> Template.dynamic template=main}}
     </main>
+
 </template>

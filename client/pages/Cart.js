@@ -23,6 +23,9 @@ Template.Cart.helpers({
 	},
 	confermaOpen: function() {
 		return Session.get('confermaOrdineOpen');
+	},
+	carrelloVuoto: function() {
+		return Carrello.find().fetch().length === 0;
 	}
 });
 

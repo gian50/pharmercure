@@ -17,7 +17,7 @@ Template.Drug.helpers({
 });
 
 Template.Drug.events({
-	'click .drug-button': function() {
+	'click .drug-box': function() {
 		Session.set('currentDrug', this);
 		Session.set('open-dettaglio', 'dettaglio-open');
 	}

@@ -472,13 +472,22 @@ display: inline-block;
     border-right: solid 1px $lngrey;
 }
 
-.prodotti-icon {
+.tab-icon {
     display: inline-block;
   width: 18px;
   height: 18px;
   background-image: url(./sprite_1.png);
   background-repeat: no-repeat;
-  background-position: -18px 0;
+  .prodotti-icon {
+    background-position: -18px 0;
+  }
+  .cart-icon {
+    width: 24px;
+    background-position: -54px 0;
+    }
+    .search-icon {
+      background-position: -36px 0;
+    }
 }
 
 .prodotti-tab-title {
@@ -490,27 +499,26 @@ display: inline-block;
     height: 100%;
     width: 90%;
     margin: auto auto;
-    padding-top: 4%;
-    padding-left: 17%;
+    padding-top: 2%;
+    padding-left: 11%;
+}
+a {
+    text-decoration: none;
 }
 
-.cart-icon {
-    display: inline-block;
-  width: 24px;
-  height: 18px;
-  background-image: url(./sprite_1.png);
-  background-repeat: no-repeat;
-  background-position: -54px 0;
+.empty-cart {
+    width: 100%;
+    color: $blue;
+    text-align: center;
+    font-size: 16px;
+    margin-top:50px;
 }
 
-.search-icon {
-    display: inline-block;
-  width: 18px;
-  height: 18px;
-  background-image: url(./sprite_1.png);
-  background-repeat: no-repeat;
-  background-position: -36px 0;
+.empty-cart-img {
+    width:80%;
+    margin:10%;
 }
+
 
 /*pagina - prodotto */
  
@@ -640,6 +648,7 @@ display: inline-block;
     background-color: #fff;
     text-align: center;
     opacity: 0;
+    z-index:-1;
      &.cont-term-open {
         opacity: 1;
         z-index: 200;
@@ -696,13 +705,33 @@ display: inline-block;
         opacity:1;
         z-index: 100;
     }
+}
 
+.inoltra-ordine-btn {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 30px;
+    border-radius: 30px;
 }
 
 @media screen and (min-width: 480px) {
+    .account-icon-container {
+        width: 120px;
+        height: 120px;
+        padding: 30px;
+    }
+    #account-icon {
+        
+        width: 60px;
+        height: 60px;
+        background-image: url(/sprite_icons_428x120px.png);
+        background-position: -60px 0;
+    }
     .home-text {
         font-size: 40px;
+        margin-top: 200px;
     }
+
     .open-list {
         font-size: 40px;
     }
@@ -713,12 +742,12 @@ display: inline-block;
     }
 
     #headerPharm-container {
+        top: 0;
         height: 150px;
     }
 
     #header-logo {
         height: 90%;
-        margin-left: -200px;
     }
     #header-logo img {
         height: 100%;
@@ -731,9 +760,9 @@ display: inline-block;
         font-size: 20px;
     }
     #show-cap-bar {
-        margin: 220px auto 30px;
+        margin: 230px auto 60px;
         font-size: 33px;
-        height: 110px;
+        height: 120px;
     }
 
     .tab-section {
@@ -742,6 +771,33 @@ display: inline-block;
             font-size: 29px;
             margin-right: 10px;
         }
+    }
+
+    .tab-icon {
+        width: 40px;
+        height: 40px;
+        background-image: url(/sprite_icons_288x80px.png);
+
+    }
+    .search-icon {
+        background-position: -80px -40px;
+    }
+    .cart-icon {
+      background-position: -120px -40px;
+      width:46px;
+    }
+    .product-icon {
+        background-position: 0 -40px;
+    }
+    .close-icon {
+      width: 38px;
+      height: 40px;
+      background-image: url(./sprite_icons_b_80x40px.png);
+      background-position: 0 0;
+    }
+
+    .green-close {
+        background-position: -40px 0;
     }
 
     .drug-box {
@@ -759,13 +815,30 @@ display: inline-block;
 
     .products-title {
         font-size: 35px;
+        margin-bottom: 50px;
     }
 
     .product-icon-box {
-        width: 264px;
-        height: 400px;
+        font-size: 30px;
+        margin-bottom: 70px;
+        width: 225px;
+        height: 280px;
+        background-image: url(/sprite_prodotti_900x225px.png);
+        span {
+            width: 100%;
+        }
     }
-
+    #ricetta-icon {
+        background-position: -225px 0;
+        float: right;
+    }
+    #cosmetici-icon {
+        background-position: -450px 0;
+    }
+    #altro-icon {
+        background-position: -675px 0;
+        float: right;
+    }
     .drug-format {
         font-size: 20px;
     }
@@ -786,18 +859,26 @@ display: inline-block;
     }
 
     .dettaglio-format {
-       font-size: 20px;
+       font-size: 24px;
     }
 
     .dettaglio-prezzo {
         font-size: 33px;
-        top: -20px;
+        top: -5px;
     }
 
     .dettaglio-descrizione {
         height: 230px;
         margin-top: 30px;
         margin-bottom: 60px;
+        font-size: 27px;
+        line-height: 37px;
+        padding: 20px;
+    }
+
+    .dettaglio-quantity {
+        color: $green;
+        font-size: 15px;
     }
 
     .add-to-cart-btn {
@@ -819,5 +900,38 @@ display: inline-block;
         width: 50px;
         margin-top: 10px;
         font-size: 40px;
+    }
+    .inoltra-ordine-btn {
+        font-size: 23px;
+    }
+
+    .login-modal {
+        font-size:30px;
+        text-align: center;
+
+        h3 {
+            font-size: 45px;
+        }
+        input {
+            float:right;
+        }
+        label {
+            float: left;
+        }
+    }
+
+    .empty-cart {
+        font-size: 30px;
+    }
+
+    #at-field-password_again {
+        width: 54%;
+    }
+
+    #at-field-telefono {
+        width: 50%;
+    }
+    #at-field-codiceFiscale {
+        width: 50%;
     }
 }

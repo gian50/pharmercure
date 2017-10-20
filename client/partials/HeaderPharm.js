@@ -8,7 +8,7 @@ Template.HeaderPharm.events({
 	'click .login-toggle': ()=> {
 			if(Meteor.userId()) {
 				Meteor.logout();
-				console.log('Effettuato Logout');
+				alert('Logout');
 				Session.set('nav-toggle','');
 			} else {
 				Session.set('nav-toggle','open');
