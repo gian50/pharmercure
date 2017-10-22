@@ -1,82 +1,94 @@
 <template name="Ordini">
-	{{#if ordineSelezionato}}
-	<div class="dettaglio-ordine-box {{visibile}}">
-		<h2>Ordine</h2>
-		<div class="close-ordine" style="float: right;">x</div>
-		<h3>Codice ordine: {{idOrdine}}</h3>
-		<div>Codice cliente: {{codCliente}}</div>
-		<div>Nome cliente: {{nomeCliente}}</div>
-		<div>Stato consegna: {{currentStatus}}</div>
-		<h3>Articoli ordinati</h3>
-		<div>
-			{{#each carrello}}
-				<div style="height: 100px;">
-					<img src="{{img}}" style="float: left; height: 100%;">
-					<div>x{{quantity}}</div>
-					<div>{{nome}}</div>
-					<div>{{formato}}</div>
-					<div style="float: right;">{{prezzo}} €</div>
+	{{#if utenteFarmacista}}
+		<h1 class="nome-farmacia">Farmacia {{nomeFarmacia}}</h1>
+		<div id="orders-container">
+		{{#if ordineSelezionato}}
+			<div class="dettaglio-ordine-box {{visibile}}">
+				<div class="close-icon" style="float: right;"></div>
+				<h2>Dettaglio ordine</h2>
+				<h3>Codice ordine: {{idOrdine}}</h3>
+				<div>Codice cliente: {{codCliente}}</div>
+				<div>Nome cliente: {{nomeCliente}}</div>
+				<div>Stato consegna: {{currentStatus}}</div>
+				<h3 style="margin-top: 60px;">Articoli ordinati</h3>
+				<div>
+					{{#each carrello}}
+					
+						{{> DrugInOrdini}}
+					{{/each}}
 				</div>
-			{{/each}}
-		</div>
-		<button class="ordine-spedito">
-			{{#if daSpedire}}
-				Spedito
-			{{else}}
-				Segna come DA SPEDIRE
+				<button class="ordine-spedito">
+					{{#if daSpedire}}
+						Spedito
+					{{else}}
+						Segna come DA SPEDIRE
+					{{/if}}
+				</button>	
+			</div>
 			{{/if}}
-		</button>	
+			<h1>Tutti gli ordini</h1>
+			<h2>In attesa di spedizione</h2>
+			<table>
+				<tr>
+					<th>id</th>
+					<th>cap</th>
+					<th>created at</th>
+					<th>user id</th>
+					<th>items</th>
+					<th>total</th>
+					<th>status</th>
+					<th></th>
+				</tr>
+				{{#each ordiniAttesa}}
+				<tr>
+					<td>{{_id}}</td>
+					<td>{{cap}}</td>
+					<td>{{date}}</td>
+					<td>{{user}}</td>
+					<td>{{items}}</td>
+					<td>{{total}} €</td>
+					<td>{{status}}</td>
+					<td class="clickable" id={{_id}}>Visualizza ordine></td>
+				</tr>
+				{{/each}}
+			</table>
+				<h2>Ordini spediti</h2>
+				<table>
+				<tr>
+					<th>id</th>
+					<th>cap</th>
+					<th>created at</th>
+					<th>user id</th>
+					<th>items</th>
+					<th>total</th>
+					<th>status</th>
+					<th></th>
+				</tr>
+				{{#each ordiniSpediti}}
+				<tr>
+					<td>{{_id}}</td>
+					<td>{{cap}}</td>
+					<td>{{date}}</td>
+					<td>{{user}}</td>
+					<td>{{items}}</td>
+					<td>{{total}} €</td>
+					<td>{{status}}</td>
+					<td class="clickable" id={{_id}}>Visualizza ordine></td>
+				</tr>
+				{{/each}}
+			</table>
 	</div>
-	{{/if}}
-	<h1>Tutti gli ordini</h1>
-	<h2 style="font-size: 30px;">In attesa di spedizione</h2>
-	<table style="width: 1200px; margin: 100px auto;">
-		<tr>
-			<th>id</th>
-			<th>cap</th>
-			<th>created at</th>
-			<th>user id</th>
-			<th>items</th>
-			<th>total</th>
-			<th>status</th>
-			<th></th>
-		</tr>
-		{{#each ordiniAttesa}}
-		<tr>
-			<td>{{_id}}</td>
-			<td>{{cap}}</td>
-			<td>{{date}}</td>
-			<td>{{user}}</td>
-			<td>{{items}}</td>
-			<td>{{total}} €</td>
-			<td>{{status}}</td>
-			<td class="clickable" id={{_id}}>Visualizza ordine></td>
-		</tr>
-		{{/each}}
-	</table>
-		<h2 style="font-size: 30px;">Ordini spediti</h2>
-		<table style="width: 1200px; margin: 100px auto;">
-		<tr>
-			<th>id</th>
-			<th>cap</th>
-			<th>created at</th>
-			<th>user id</th>
-			<th>items</th>
-			<th>total</th>
-			<th>status</th>
-			<th></th>
-		</tr>
-		{{#each ordiniSpediti}}
-		<tr>
-			<td>{{_id}}</td>
-			<td>{{cap}}</td>
-			<td>{{date}}</td>
-			<td>{{user}}</td>
-			<td>{{items}}</td>
-			<td>{{total}} €</td>
-			<td>{{status}}</td>
-			<td class="clickable" id={{_id}}>Visualizza ordine></td>
-		</tr>
-		{{/each}}
-	</table>
+		{{ else}}
+			<div style="margin-top: 300px">Effettua il Login per poter visualizzare gli ordini</div>
+		{{/if}}
+</template>
+
+<template name="DrugInOrdini">
+	<div class="drug-order-box">
+		<img src="{{img}}" class="cart-img">
+		<div class="dettaglio-quantity">x{{quantity}}</div>
+		<div class="dettaglio-name">{{nome}}</div>
+		<span class="dettaglio-format">{{formato}}</span>
+		<span class="dettaglio-prezzo">{{prezzo}} €</span>	
+	</div>
 </template>

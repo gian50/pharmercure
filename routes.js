@@ -18,7 +18,11 @@ FlowRouter.route('/dashboard', {
 FlowRouter.route('/banco-list', {
     name: 'banco-list',
     action() {
-        BlazeLayout.render("AppLayout", {main: "Banco"});
+        if(Session.get('currentCap')) {
+            BlazeLayout.render("AppLayout", {main: "Banco"});
+        } else {
+            FlowRouter.go('/') ;
+        }
     }
 });
 
@@ -26,7 +30,11 @@ FlowRouter.route('/banco-list', {
 FlowRouter.route('/products', {
     name: 'products',
     action() {
-        BlazeLayout.render("AppLayout", {main: "Products"});
+        if(Session.get('currentCap')) {
+            BlazeLayout.render("AppLayout", {main: "Products"});
+        } else {
+            FlowRouter.go('/') ; 
+        }
     }
 });
 
@@ -34,7 +42,11 @@ FlowRouter.route('/products', {
 FlowRouter.route('/cart', {
     name: 'cart',
     action() {
-        BlazeLayout.render("AppLayout", {main: "Cart"});
+        if(Session.get('currentCap')) {
+            BlazeLayout.render("AppLayout", {main: "Cart"});
+        } else {
+            FlowRouter.go('/') ; 
+        }
     }
 });
 
@@ -42,7 +54,7 @@ FlowRouter.route('/cart', {
 FlowRouter.route('/ordini', {
     name: 'ordini',
     action() {
-        BlazeLayout.render("MainLayout", {main: "Ordini"});
+        BlazeLayout.render("DesktopLayout", {main: "Ordini"});
     }
 });
 

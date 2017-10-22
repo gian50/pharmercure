@@ -1,5 +1,5 @@
 <template name="Cart">
-	<div style="height: 250px"></div>
+	<div style="height: 100px"></div>
 	{{#if carrelloVuoto}}
 		<div class="empty-cart">Il carrello è vuoto</div>
 		<img src="empty_cart.png" class="empty-cart-img">
@@ -7,6 +7,7 @@
 		{{#each cart}}
 			{{> DrugInCart}}
 		{{/each}}
+		<div class="totale-carrello">Totale: {{cartTotal}}€</div>
 		{{#if currentUser}}
 			<button class="inoltra-ordine-btn">Inoltra ordine</button>
 		{{else}}

@@ -2,11 +2,13 @@
 
 .login-modal {
     position: fixed;
+    overflow: hidden;
     border: solid 4px $blue;
     top: 10%;
     left: 50%;
     padding: 20px;
     width: 90%;
+    height: 80%;
     transform: translate3d(25%, -80%, 0) scale(0.5);
     background: #FFF;
     @include trans();
@@ -29,6 +31,8 @@
         font-size: 2em;
         padding: 10px 15px;
         opacity: 0.2;
+        margin: 16px;
+        z-index:5;
     }
     button {
     background-color: $green;
@@ -38,4 +42,14 @@
 
 .at-input {
     margin-bottom: 10px;
+}
+
+.to-scroll {
+    position: relative;
+    overflow: auto;
+    max-height: 98%;
+}
+
+.at-form {
+    overflow: auto;
 }

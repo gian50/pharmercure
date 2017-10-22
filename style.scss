@@ -202,8 +202,8 @@ table {
     position: relative;
     transition: all 0.4s cubic-bezier(0.68, -0.65, 0.265, 1.20);
     @include card(2);
-    tr:nth-child(even) {
-        background: #EEE
+    tr:nth-child(odd) {
+        background: #D8F6CE;
     }
     td, th {
         text-align: left;
@@ -256,6 +256,7 @@ table {
     width: 50%;
     height: 250px;
     float: left;
+    margin-top:20px;
 }
 
 .right-borded {
@@ -268,17 +269,18 @@ table {
 }
 .drug-img {
     width: 90%;
-    height: 140px;
+    height: 135px;
     float: left;
     
 }
 
 .drug-img img {
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 70%;
+    max-height: 70%;
     position: relative;
     left: 50%;
-    margin-left: -70px;
+    margin-left: -40px;
+    bottom: -20px;
 }
 
 .drug-name {
@@ -292,6 +294,7 @@ table {
     font-size: 12px;
     text-align: center;
     margin-top:5px;
+    height: 30px;
 }
 
 .drug-button {
@@ -320,12 +323,12 @@ table {
 .home-text {
     color: $blue;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 .home-text-cap {
     width: 70%;
-    margin: 15% auto 20px;
+    margin: 5% auto 20px;
 }
 
 .cap-form {
@@ -346,17 +349,18 @@ input{
     z-index:100;
     position:fixed;
     width: 100%;
-    height: 56px;
+    height: 60px;
     background-color:$bggrey;
     border-bottom: solid 1px $lngrey;
+    padding-left: 7px;
 }
 
 #tabMenu-container {
     z-index:100;
     position:fixed;
     width: 100%;
-    top:56px;
-    height: 36px;
+    top:60px;
+    height: 40px;
     background-color: $bggrey;
     box-shadow: 0px 4px 6px $lngrey;
 }
@@ -372,7 +376,7 @@ display: inline-block;
 .account-icon-container {
     width:56px;
     height: 56px;
-    float:left;
+    float:right;
     padding:19px;
 }
 
@@ -380,9 +384,9 @@ display: inline-block;
     height: 56px;
     width: auto;
     float: left;
-    position: absolute;
+   
     left: 50%;
-    margin-left: -71px;
+    /*margin-left: -71px;*/
 }
 
 #header-logo img {
@@ -408,7 +412,7 @@ display: inline-block;
 
 #products-btns {
     z-index: 2;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -428,13 +432,27 @@ display: inline-block;
     bottom: 0;
     width: 132px;
     text-align: center;
+}
 
+.product-icon {
+    width: 18px;
+    background-position: -18px 0px;
+}
+
+.search-icon {
+    width: 18px;
+    background-position: -36px 0px;
+}
+
+.cart-icon {
+    width: 24px;
+    background-position: -54px 0px;
 }
 
 #ricetta-icon {
     background-position: -132px 0;
     margin-left: 18px;
-    
+    float: right;
 }
 
 #cosmetici-icon {
@@ -444,6 +462,7 @@ display: inline-block;
 #altro-icon {
    background-position: -396px 0;
    margin-left: 18px;
+    float: right;
 }
 
 #show-cap-bar {
@@ -452,6 +471,12 @@ display: inline-block;
     border-bottom: solid 2px $green;
     margin: 70px auto 30px;
     padding: 10px;
+}
+
+.cambia-cap {
+    text-align: right;
+    float: right;
+    color: $blue;
 }
 
 .products-title {
@@ -474,7 +499,6 @@ display: inline-block;
 
 .tab-icon {
     display: inline-block;
-  width: 18px;
   height: 18px;
   background-image: url(./sprite_1.png);
   background-repeat: no-repeat;
@@ -511,7 +535,6 @@ a {
     color: $blue;
     text-align: center;
     font-size: 16px;
-    margin-top:50px;
 }
 
 .empty-cart-img {
@@ -528,7 +551,7 @@ a {
     width: 90%;
     position: fixed;
     background-color: #fff;
-    top:50px;
+    top:40px;
     left: 5%;
     border: solid 1px $blue;
     border-radius: 5px;
@@ -543,7 +566,7 @@ a {
 .close-icon {
   display: inline-block;
   width: 18px;
-  height: 18px;
+  height: 25px;
   background-image: url(./sprite_2.png);
   background-repeat: no-repeat;
   background-position: -18px 0;
@@ -555,8 +578,8 @@ a {
 }
 
 .dettaglio-img {
-    max-width: 60%;
-    margin: 30px 20%;
+    max-width: 50%;
+    margin: 10px 25%;
 }
 
 .dettaglio-info-box {
@@ -607,7 +630,7 @@ a {
     float: left;
     width: 20px;
     border: none;
-    margin-top:5px;
+    margin-top:-6px;
 }
 
 .add-to-cart-btn {
@@ -621,6 +644,7 @@ a {
     color: #fff;
     text-align: center;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .cart-img {
@@ -630,19 +654,41 @@ a {
 }
 
 .drug-cart-box {
-    height:130px;
+    height:70px;
     border-bottom: solid 2px $lngrey;
     margin-bottom: 40px;
 }
 
+.dettaglio-quantity {
+    color: #61cc10;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.drug-order-box {
+    height:130px;
+    border-bottom: solid 2px $lngrey;
+    margin-bottom: 40px;
+    .dettaglio-quantity {
+        font-size: 20px;
+    }
+    .dettaglio-name {
+        font-size: 24px;
+    }
+    .dettaglio-format {
+        font-size: 16px;
+    }
+    .dettaglio-prezzo {
+        font-size: 23px;
+    }
+}
 #continua-termina-box {
     position:fixed;
-    font-size: 30px;
-    padding: 40px;
+    font-size: 16px;
+    padding: 20px;
     top: 35%;
     left: 10%;
     width: 80%;
-    height: 300px;
     border-radius: 10px;
     border: solid 3px $green;
     background-color: #fff;
@@ -655,14 +701,22 @@ a {
     }
 
     button {
-        width: 43%;
+        width: 37%;
+        height: 50px;
         float: left;
         margin: 15px;
-        font-size: 23px;
+        font-size: 13px;
         font-weight: normal;
         padding: 2px;
         border-radius: 10px;
     }
+}
+
+.totale-carrello {
+    text-align: right;
+    color: #61cc10;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .conferma-ordine {
@@ -713,225 +767,42 @@ a {
     margin-top: 30px;
     border-radius: 30px;
 }
-
-@media screen and (min-width: 480px) {
-    .account-icon-container {
-        width: 120px;
-        height: 120px;
-        padding: 30px;
-    }
-    #account-icon {
-        
-        width: 60px;
-        height: 60px;
-        background-image: url(/sprite_icons_428x120px.png);
-        background-position: -60px 0;
-    }
-    .home-text {
-        font-size: 40px;
-        margin-top: 200px;
-    }
-
-    .open-list {
-        font-size: 40px;
-    }
-
-    .open-list input, button {
-        margin-top: 80px;
-        height: 100px;
-    }
-
-    #headerPharm-container {
-        top: 0;
-        height: 150px;
-    }
-
-    #header-logo {
-        height: 90%;
-    }
-    #header-logo img {
-        height: 100%;
-        margin-top: 2px;
-    }
-    
-    #tabMenu-container {
-        top: 150px;
-        height: 80px;
-        font-size: 20px;
-    }
-    #show-cap-bar {
-        margin: 230px auto 60px;
-        font-size: 33px;
-        height: 120px;
-    }
-
-    .tab-section {
-        margin-top:12px;
-        span {
-            font-size: 29px;
-            margin-right: 10px;
-        }
-    }
-
-    .tab-icon {
-        width: 40px;
-        height: 40px;
-        background-image: url(/sprite_icons_288x80px.png);
-
-    }
-    .search-icon {
-        background-position: -80px -40px;
-    }
-    .cart-icon {
-      background-position: -120px -40px;
-      width:46px;
-    }
-    .product-icon {
-        background-position: 0 -40px;
-    }
-    .close-icon {
-      width: 38px;
-      height: 40px;
-      background-image: url(./sprite_icons_b_80x40px.png);
-      background-position: 0 0;
-    }
-
-    .green-close {
-        background-position: -40px 0;
-    }
-
-    .drug-box {
-        height: 350px;
-        margin-bottom: 60px;
-    }
-
-    .drug-img {
-        height: 200px;
-    }
-
-    .drug-name {
-        font-size: 25px;
-    }
-
-    .products-title {
+/*** ordini ***/
+#orders-container {
+    width: 90%;
+    margin: 50px auto;
+    h1 {
         font-size: 35px;
-        margin-bottom: 50px;
+        color: $blue;
     }
-
-    .product-icon-box {
-        font-size: 30px;
-        margin-bottom: 70px;
-        width: 225px;
-        height: 280px;
-        background-image: url(/sprite_prodotti_900x225px.png);
-        span {
-            width: 100%;
-        }
-    }
-    #ricetta-icon {
-        background-position: -225px 0;
-        float: right;
-    }
-    #cosmetici-icon {
-        background-position: -450px 0;
-    }
-    #altro-icon {
-        background-position: -675px 0;
-        float: right;
-    }
-    .drug-format {
-        font-size: 20px;
-    }
-
-    .drug-button {
-        width: 150px;
-        height: 50px;
-        margin-top: 15px;
-        margin-left: -75px;
-        border-radius: 20px;
-        font-weight: 700;
+    h2 {
         font-size: 25px;
+        color: $blue;
     }
-
-    .dettaglio-name {
-        font-size: 30px;
-        margin-bottom: 15px;
-    }
-
-    .dettaglio-format {
-       font-size: 24px;
-    }
-
-    .dettaglio-prezzo {
-        font-size: 33px;
-        top: -5px;
-    }
-
-    .dettaglio-descrizione {
-        height: 230px;
-        margin-top: 30px;
-        margin-bottom: 60px;
-        font-size: 27px;
-        line-height: 37px;
-        padding: 20px;
-    }
-
-    .dettaglio-quantity {
-        color: $green;
-        font-size: 15px;
-    }
-
-    .add-to-cart-btn {
-        width: 50%;
-        padding: 20px;
-        font-size: 30px;
-    }
-
-    .quantity-selector {
-        width: 60px;
-        height: 60px;
-        border: solid 2px #61cc10;
-        border-radius: 30px;
-        font-size: 40px;
-        padding: 6px;
-    }
-
-    .quantity-number {
-        width: 50px;
-        margin-top: 10px;
-        font-size: 40px;
-    }
-    .inoltra-ordine-btn {
-        font-size: 23px;
-    }
-
-    .login-modal {
-        font-size:30px;
-        text-align: center;
-
-        h3 {
-            font-size: 45px;
+    table {
+        width: 95%;
+        margin: 10px auto 100px;
+        th {
+            background-color: $green;
         }
-        input {
-            float:right;
-        }
-        label {
-            float: left;
-        }
-    }
-
-    .empty-cart {
-        font-size: 30px;
-    }
-
-    #at-field-password_again {
-        width: 54%;
-    }
-
-    #at-field-telefono {
-        width: 50%;
-    }
-    #at-field-codiceFiscale {
-        width: 50%;
     }
 }
+.dettaglio-ordine-box {
+    
+ h3 {
+    font-size: 20px;
+    color: $green;
+    font-weight: bold;
+    }
+    button {
+        border-radius: 20px;
+        margin-left: 80px;
+    }
+}
+.nome-farmacia {
+    margin-top: 150px;
+    color: $green;
+    font-size: 30px;
+    font-weight: bold;
+}
+@import 'sass/min-width_480.scss';

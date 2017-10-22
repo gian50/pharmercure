@@ -26,6 +26,11 @@ Template.Cart.helpers({
 	},
 	carrelloVuoto: function() {
 		return Carrello.find().fetch().length === 0;
+	},
+	cartTotal: function() {
+		return Carrello.find().fetch().reduce(function(total,drug) {
+			return total + parseFloat(drug.prezzo);
+		},0).toFixed(2);
 	}
 });
 

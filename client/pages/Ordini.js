@@ -2,10 +2,14 @@ import './utilities.js';
 
 Template.Ordini.helpers({
 	ordiniAttesa: function() {
-		return Ordini.find({status: 'In attesa'}, { sort: { createdAt: -1 }} );
+//console.log(Accounts.user().profile.cap)
+		return Ordini.find({status: 'In attesa', cap: Accounts.user().profile.cap }, { sort: { createdAt: -1 }} );
 	},
 	ordiniSpediti: function() {
-		return Ordini.find({status: 'Spedito'}, { sort: { createdAt: -1 }} );
+		return Ordini.find({status: 'Spedito', cap: Accounts.user().profile.cap }, { sort: { createdAt: -1 }} );
+	},
+	nomeFarmacia: function() {
+		return Accounts.user().profile.nome;
 	},
 	items: function () {
 		var items = 0;
@@ -19,11 +23,7 @@ Template.Ordini.helpers({
 		for (var i = 0; i < this.cart.length; i++) {
 			total += parseFloat(this.cart[i].prezzo);
 		}
-		var addZero = Math.round(   (total - Math.floor(total)  ) * 100) % 10 == 0;
-		if(addZero) {
-			total = '' + total + '0';
-		}
-		return '' + total;
+		return total.toFixed(2);
 	},
 	ordineSelezionato: function() {
 		return Session.get('currentOrdine') != undefined;
@@ -52,6 +52,9 @@ Template.Ordini.helpers({
 	},
 	daSpedire: function() {
 		return Session.get('currentOrdine').status == 'In attesa';
+	},
+	utenteFarmacista: function() {
+		return Roles.userIsInRole(Accounts.user()._id, 'farma');
 	}
 });
 
@@ -61,7 +64,7 @@ Template.Ordini.events({
 		Session.set('dettaglio-ordine-visibile', 'visible');
 		Session.set('currentOrdine', ordine);
 	},
-	'click .close-ordine': function() {
+	'click .close-icon': function() {
 		Session.set('dettaglio-ordine-visibile', '');
 	},
 	'click .ordine-spedito': function() {
