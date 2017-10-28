@@ -258,6 +258,9 @@ table {
     float: left;
     margin-top:20px;
 }
+.drug-box-ricetta {
+    height: 280px;
+}
 
 .right-borded {
     border: solid 1px $lngrey;
@@ -303,7 +306,6 @@ table {
     width: 106px;
     height: 30px;
     padding: 0;
-    margin-top: 10px;
     margin-left: -53px;
     border-radius: 10px;
     font-weight:700;
@@ -587,13 +589,11 @@ a {
 }
 
 .dettaglio-name {
-    width: 50%;
     font-weight: bold;
 
 }
 
 .dettaglio-format {
-    width: 70%;
     font-size: 12px;
 }
 
@@ -654,7 +654,7 @@ a {
 }
 
 .drug-cart-box {
-    height:70px;
+    height:75px;
     border-bottom: solid 2px $lngrey;
     margin-bottom: 40px;
 }
@@ -766,6 +766,7 @@ a {
     margin-left: 25%;
     margin-top: 30px;
     border-radius: 30px;
+    padding-left: 45px;
 }
 /*** ordini ***/
 #orders-container {
@@ -774,10 +775,12 @@ a {
     h1 {
         font-size: 35px;
         color: $blue;
+        margin-left: 2.5%;
     }
     h2 {
         font-size: 25px;
         color: $blue;
+        margin-left: 2.5%;
     }
     table {
         width: 95%;
@@ -805,4 +808,114 @@ a {
     font-size: 30px;
     font-weight: bold;
 }
+
+.user-info-container {
+    margin-top: 50px;
+    padding: 10px;
+    div {
+        height: 30px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+}
+
+.lista-ricetta {
+    margin-top: 30px;
+}
+
+.farmaco-ricetta {
+    width: 100%;
+    height: 90px;
+    margin-bottom: 20px;
+    .farmaco-ricetta-nome {
+        font-weight: bold;
+        text-transform: capitalize;
+        width: 40%;
+        float:left;
+    }
+    .farmaco-ricetta-descrizione {
+        width: 40%;
+        float:left;
+    }
+    .farmaco-ricetta-formato {
+        width: 51%;
+        float:left;
+    }
+    button {
+        position: relative;
+        float: right;
+        top: -20px;
+        width: 100px;
+        height: 26px;
+        padding: 3px;
+        font-size: 11px;
+        border-radius: 5px;
+        font-weight: 700;
+        text-transform: initial;
+    }
+    img {
+        width: 70px;
+        height: 60px;
+        float: left;
+    }
+}
+
+.pulisci-ricerca {
+    background-color: #0091FF;
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    width: 100px;
+    height: 30px;
+    font-size: 13px;
+}
+
+
+
+
+
+
+.scegli-farmacia-asti {
+    width: 90%;
+    position: fixed;
+    top: 50px;
+    left: 5%;
+    background-color: #fff;
+    border: solid 2px $green;
+    border-radius: 15px;
+    height: 450px;
+    z-index: -2;
+    text-align: center;
+    color: $blue;
+    font-weight: bold;
+    h1 {
+        font-size: 20px;
+    }
+    opacity: 0;
+    &.scegli-open {
+        opacity: 1;
+        z-index: 150;
+    }
+   img {
+        width: 85%;
+        margin-top: 30px;
+    }
+}
+
+.close-scegli {
+    display: inline-block;
+  width: 18px;
+  height: 25px;
+  background-image: url(./sprite_2.png);
+  background-repeat: no-repeat;
+  background-position: -18px 0;
+  float: right;
+      position: relative;
+    top: -56px;
+    right: 10px;
+}
+
+
+
 @import 'sass/min-width_480.scss';

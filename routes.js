@@ -25,7 +25,13 @@ FlowRouter.route('/banco-list', {
         }
     }
 });
-
+// Utente
+FlowRouter.route('/utente', {
+    name: 'utente',
+    action() {
+        BlazeLayout.render("AppLayout", {main: "Utente"});
+    }
+});
 // Prodotti
 FlowRouter.route('/products', {
     name: 'products',

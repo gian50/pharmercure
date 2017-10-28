@@ -3,9 +3,13 @@ Template.CapBar.helpers({
 		return Session.get('currentCap');
 	},
 	quartiere: function() {
-		return Farmacie.find({ cap: Session.get('currentCap') }).fetch()[0].quartiere;
+		if(Farmacie.find({ cap: Session.get('currentCap') }).fetch()[0].quartiere !== undefined)
+		return ' ' + Farmacie.find({ cap: Session.get('currentCap') }).fetch()[0].quartiere;
 	},
 	provincia: function() {
 		return Farmacie.find({ cap: Session.get('currentCap') }).fetch()[0].provincia;
+	},
+	comune: function() {
+		return Farmacie.find({ cap: Session.get('currentCap') }).fetch()[0].comune;
 	}
 });

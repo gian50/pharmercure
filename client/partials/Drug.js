@@ -13,6 +13,17 @@ function formatPrice(price) {
 Template.Drug.helpers({
 	prezzoFormattato: function() {
 		return formatPrice(this.prezzo);
+	},
+	drugImage: function() {
+		return (this.imgSrc !== undefined) ? this.imgSrc : 'logo_short.png'; 
+	},
+	farmaciConRicetta: function () {
+		return Session.get('drugs-to-show') === 'Farmaci con ricetta';
+	},
+	conRicettaClass: function() {
+		if (Session.get('drugs-to-show') === 'Farmaci con ricetta') {
+			return 'drug-box-ricetta';
+		}
 	}
 });
 

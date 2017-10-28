@@ -1,10 +1,13 @@
 <template name="Drug">
-	<li class="drug-box">
+	<li class="drug-box {{conRicettaClass}}">
 			<div class="drug-img">
-				<img src="{{imgSrc}}" alt="{{nome}}">
+				<img src="{{drugImage}}" alt="{{nome}}">
 			</div>
-			<div class="drug-name">{{nome}}</div>
+			<div class="drug-name">{{nome}} {{suffisso}}</div>
 			<div class="drug-format">{{formato}}</div>
+			{{# if farmaciConRicetta}}
+				<div class="drug-format">{{dosaggio}}</div>
+			{{/if}}
 			<button class="drug-button">{{prezzoFormattato}} €</button>
 	</li>
 </template>

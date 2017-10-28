@@ -31,6 +31,9 @@ Template.Cart.helpers({
 		return Carrello.find().fetch().reduce(function(total,drug) {
 			return total + parseFloat(drug.prezzo);
 		},0).toFixed(2);
+	},
+	scegliOpen: function() {
+		return Session.get('mostra-farmacie-asti');
 	}
 });
 
@@ -38,9 +41,11 @@ Template.Cart.events({
 	'click .close-icon': function() {
 		Carrello.remove(this._id);
 	},
+	'click .close-scegli': function() {
+		Session.set('mostra-farmacie-asti','');
+	},
 	'click .inoltra-ordine-btn': function() {
-			console.log('cose');
-		if(Carrello.find().fetch().length != 0){
+		/*if(Carrello.find().fetch().length != 0){
 			if(Session.get('currentCap') != ''){
 				Ordini.insert({ cap: Session.get('currentCap'), cart: Carrello.find().fetch(), createdAt: new Date(), user: Meteor.userId(), status: "In attesa"});
 				//Session.set('confermaOrdineOpen', 'conferma-ordine-open');
@@ -54,6 +59,31 @@ Template.Cart.events({
 			
 		}else {
 			alert("Carrello vuoto. Selezionare almeno un prodotto per effettuare l'ordine."); 
+		}*/
+		Session.set('mostra-farmacie-asti','scegli-open');
+	},
+	'click .img-farmacia': function() {
+		if(Carrello.find().fetch().length != 0){
+			if(Session.get('currentCap') != ''){
+				Ordini.insert({ cap: Session.get('currentCap'), cart: Carrello.find().fetch(), createdAt: new Date(), user: Meteor.userId(), status: "In attesa"});
+				//Session.set('confermaOrdineOpen', 'conferma-ordine-open');
+				alert('Ordine effettuato');
+				Session.set('newOrder', 'play');
+				Session.set('newOrder', '');
+				Session.set('mostra-farmacie-asti','');
+				Carrello.remove({});
+			} else {
+				alert('Inserire CAP');
+			}
+			
+		}else {
+			alert("Carrello vuoto. Selezionare almeno un prodotto per effettuare l'ordine."); 
 		}
 	}
 });
+
+Template.DrugInCart.helpers({
+	defaultImg: function() {
+		return (this.tipo ==='Farmaci con ricetta') ? 'logo_short.png' : '';
+	}
+})

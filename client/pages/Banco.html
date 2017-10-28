@@ -3,31 +3,59 @@
 	<h2 class="products-title">
 		{{drugGroup}}
 	</h2>
-	<ul class="drug-list">
-      {{#each drugs}}
-        {{> Drug}}
-      {{/each}}
-    </ul>
-    <div id="pagina-prodotto" class="{{open}}">
-    	<i class="close-icon"></i>
-    	<img src="{{img}}" class="dettaglio-img">
-    	<div class="dettaglio-info-box">
-	    	<div class="dettaglio-name">{{nome}}</div>
-			<span class="dettaglio-format">{{formato}}</span>
-			<span class="dettaglio-prezzo">{{prezzo}} €</span>
-			<div class="dettaglio-descrizione">{{descrizione}}</div>
-			<form id="quantity-box">
-				<div class="quantity-selector less">-</div>
-				<input type="number" name="drug-quantity" value="{{quantity}}" class="quantity-number">
-				<div class="quantity-selector more">+</div>
-				<div class="add-to-cart-btn">Aggiungi al carrello</div>
-			</form>
-    	</div>
+	{{# if farmaciConRicetta}}
+		<form method="post" style="text-align: center;" class="form-ricerca-farmaci">
+			<label>Cerca: <input type="text" name="ricerca-farmaci-ricetta" style="margin-left: 8px;"></label>
+			<button style="margin-top: 20px; border-radius: 10px;">Cerca</button>
+		</form>
+		<ul class="drug-list">
+		{{#each ricettaDrugs}}
+			{{> Drug}}
+		{{/each}}
+		{{#if ricercaPiena}}
+			<div style="text-align: center; width: 100%; float: left;">
+				<button class="pulisci-ricerca">Pulisci</button>
+			</div>
+		{{/if}}
+		</ul>
+	{{ else }}
+		<ul class="drug-list">
+	      {{#each drugs}}
+	        {{> Drug}}
+	      {{/each}}
+	    </ul>
+	{{/if}}
+	    <div id="pagina-prodotto" class="{{open}}">
+	    	<i class="close-icon"></i>
+	    	<img src="{{img}}" class="dettaglio-img">
+	    	<div class="dettaglio-info-box">
+		    	<div class="dettaglio-name">{{nome}}</div>
+				<span class="dettaglio-format">{{formato}}</span>
+				<span class="dettaglio-prezzo">{{prezzo}} €</span>
+				<div class="dettaglio-descrizione">{{descrizione}}</div>
+				<form id="quantity-box">
+					<div class="quantity-selector less">-</div>
+					<input type="number" name="drug-quantity" value="{{quantity}}" class="quantity-number">
+					<div class="quantity-selector more">+</div>
+					<div class="add-to-cart-btn">Aggiungi al carrello</div>
+				</form>
+	    	</div>
 
-    </div>
-	<div id="continua-termina-box" class="{{contTerm}}">
-		<p>Il prodotto è stato aggiunto al carrello.</p>
-		<button class="ordina-ancora-btn">Ordina ancora</button>
-		<a href="/cart"><button class="ordina-ancora-btn">Vai al carrello </button></a>
-	</div>
+	    </div>
+		<div id="continua-termina-box" class="{{contTerm}}">
+			<p>Il prodotto è stato aggiunto al carrello.</p>
+			<button class="ordina-ancora-btn">Ordina ancora</button>
+			<a href="/cart"><button class="ordina-ancora-btn">Vai al carrello </button></a>
+		</div>
+</template>
+
+<template name="FarmacoRicetta">
+	<li class="farmaco-ricetta">
+		<img src="logo_simple.jpeg">
+		<div class="farmaco-ricetta-nome">{{nome}}</div>
+		<div class="farmaco-ricetta-descrizione">Azione: {{descrizione}}</div>
+		<div class="farmaco-ricetta-formato">{{formato}}</div>
+		<div class="farmaco-ricetta-formato">{{dpsaggio}}</div>
+		<a href="{{fogliettoIllustrativo}}"><button>Scopri di più</button></a>
+	</li>
 </template>

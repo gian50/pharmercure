@@ -18,14 +18,22 @@ function formatPrice(price) {
 Template.Banco.onCreated(function() {
 	console.log(Session.get('drugs-to-show'));
 	Session.set('quantity', 1);
+	Session.set('stringToSearch','');
+	this.autorun(() => {
+		this.subscribe('allUsers');
+		this.subscribe('allDrugs');
+	});
 });
 
 Template.Banco.helpers({
 	drugs: function() {
-		return Drugs.find();
+		return Drugs.find({ tipo: Session.get('drugs-to-show')});
 	},
 	drugGroup: function () {
 		return Session.get('drugs-to-show');
+	},
+	farmaciConRicetta: function () {
+		return Session.get('drugs-to-show') === 'Farmaci con ricetta';
 	},
 	open: function() {
 		return Session.get('open-dettaglio');
@@ -66,6 +74,15 @@ Template.Banco.helpers({
 	},
 	contTerm: function() {
 		return Session.get('cont-term');
+	},
+	ricettaDrugs: function() {
+		if(Session.get('stringToSearch') && Session.get('stringToSearch') !== ''){
+			var regEx = /[Session.get('stringToSearch')]/;
+			return Drugs.find({ tipo: "Farmaci con ricetta" , "nome": Session.get('stringToSearch')}).fetch();
+		}
+	},
+	ricercaPiena: function() {
+		return Session.get('stringToSearch') !== ''; 
 	}
 });
 
@@ -88,6 +105,7 @@ Template.Banco.events({
 			img: Session.get('currentDrug').imgSrc,
 			nome: Session.get('currentDrug').nome,
 			formato: Session.get('currentDrug').formato,
+			tipo: Session.get('currentDrug').tipo,
 			prezzo: formatPrice(Session.get('currentDrug').prezzo * Session.get('quantity') )
 		});
 		Session.set('cont-term', 'cont-term-open');
@@ -97,5 +115,18 @@ Template.Banco.events({
 	'click .ordina-ancora-btn': function() {
 		Session.set('open-dettaglio', '');
 		Session.set('cont-term', '');
-	}
+	},
+	'submit .form-ricerca-farmaci'(event) {
+        // Prevent default browser form submit
+        event.preventDefault();
+     
+        // Get value from form element
+        const target = event.target;
+        var stringToSearch = event.currentTarget["0"].value.toLowerCase();
+        Session.set('stringToSearch',stringToSearch);
+ 		event.currentTarget["0"].value = '';
+ 	},
+ 	'click .pulisci-ricerca' : function() {
+ 		Session.set('stringToSearch','');
+ 	}
 });
