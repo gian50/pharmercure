@@ -37,6 +37,11 @@ Template.Ordini.helpers({
 	carrello: function() {
 		return Session.get('currentOrdine').cart;
 	},
+	totale: function() {
+		return formatNumber(Session.get('currentOrdine').cart.reduce(function(totale,medicina) {
+			return totale + parseFloat(medicina.prezzo);
+		},0));
+	},
 	idOrdine: function() {
 		return Session.get('currentOrdine')._id;
 	},
@@ -56,6 +61,7 @@ Template.Ordini.helpers({
 	utenteFarmacista: function() {
 		return Roles.userIsInRole(Accounts.user()._id, 'farma');
 	}
+	
 });
 
 Template.Ordini.events({
@@ -78,7 +84,11 @@ Template.Ordini.events({
 	}
 });
 
-
+Template.DrugInOrdini.helpers({
+	defaultImage: function() {
+		return (this.tipo === 'Farmaci con ricetta') ? 'logo_short.png' : '';
+	}
+})
 
 /**
  * Format a date ad dd-MMM-yyyy

@@ -291,6 +291,7 @@ table {
     font-weight: bold;
     font-size: 14px;
     text-align: center;
+    text-transform: capitalize;
 }
 
 .drug-format {
@@ -590,11 +591,13 @@ a {
 
 .dettaglio-name {
     font-weight: bold;
-
+    text-transform: capitalize;
 }
 
 .dettaglio-format {
     font-size: 12px;
+    width: 250px;
+    height: 0px;
 }
 
 .dettaglio-prezzo {
@@ -686,7 +689,7 @@ a {
     position:fixed;
     font-size: 16px;
     padding: 20px;
-    top: 35%;
+    top: 27%;
     left: 10%;
     width: 80%;
     border-radius: 10px;
@@ -804,6 +807,7 @@ a {
 }
 .nome-farmacia {
     margin-top: 150px;
+    margin-left: 7.5%;
     color: $green;
     font-size: 30px;
     font-weight: bold;
@@ -869,6 +873,7 @@ a {
     width: 100px;
     height: 30px;
     font-size: 13px;
+    margin-bottom: 20px;
 }
 
 
@@ -884,22 +889,30 @@ a {
     background-color: #fff;
     border: solid 2px $green;
     border-radius: 15px;
-    height: 450px;
+    height: 480px;
     z-index: -2;
     text-align: center;
     color: $blue;
     font-weight: bold;
     h1 {
         font-size: 20px;
+        padding: 0 30px;
+        margin-bottom: 30px;
     }
     opacity: 0;
     &.scegli-open {
         opacity: 1;
         z-index: 150;
     }
-   img {
-        width: 85%;
-        margin-top: 30px;
+    .img-farmacia {
+        height: 100px;
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 35px;
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
     }
 }
 
@@ -916,6 +929,11 @@ a {
     right: 10px;
 }
 
+.totale-ordine {
+    float: right;
+    margin-bottom: 20px;
+    color: $blue;
+}
 
 
 @import 'sass/min-width_480.scss';

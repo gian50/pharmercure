@@ -12,11 +12,11 @@
 				<div>Stato consegna: {{currentStatus}}</div>
 				<h3 style="margin-top: 60px;">Articoli ordinati</h3>
 				<div>
-					{{#each carrello}}
-					
+					{{#each carrello}}	
 						{{> DrugInOrdini}}
 					{{/each}}
 				</div>
+				<div class="totale-ordine">totale: {{totale}}</div>
 				<button class="ordine-spedito">
 					{{#if daSpedire}}
 						Spedito
@@ -85,7 +85,7 @@
 
 <template name="DrugInOrdini">
 	<div class="drug-order-box">
-		<img src="{{img}}" class="cart-img">
+		<img src="{{img}} {{defaultImage}}" class="cart-img">
 		<div class="dettaglio-quantity">x{{quantity}}</div>
 		<div class="dettaglio-name">{{nome}}</div>
 		<span class="dettaglio-format">{{formato}}</span>
