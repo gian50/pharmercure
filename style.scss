@@ -814,14 +814,67 @@ a {
 }
 
 .user-info-container {
-    margin-top: 50px;
-    padding: 10px;
+    padding: 0 10px;
+    text-align: center;
     div {
         height: 30px;
     }
     h2 {
-        font-size: 30px;
+        font-size: 25px;
+        font-weight: 400;
+        color: #0091FF;
+        background-color: #fafafa;
+        width: 100%;
+        padding: 15px;
+        margin-top: 0;
     }
+    h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 40px;
+    }
+    .change-pwd {
+        color: $green;
+        margin: 20px 0;
+        font-weight: 600; 
+    }
+    .profile-data {
+        border-bottom: solid 2px $lngrey;
+        text-align: left;
+        height: 50px;
+        padding: 15px;
+    }
+    .edit-icon {
+        display: inline-block;
+      width: 40px;
+      height: 35px;
+      background-image: url(./sprite_icons_3_120x40px.png);
+      background-repeat: no-repeat;
+      background-position: -80px -5px;
+      float: right;
+    }
+}
+
+.user-btns {
+    button{
+        float: left;
+        width: 32%;
+        margin-left: 12%;
+        text-transform: none;
+        padding: 5px;
+        height: 60px;
+        border-radius: 10px;
+    }
+    .logout-btn {
+        background-color: $blue;
+        border-color: $blue;
+    }
+    margin-top: 25px;
+}
+
+.head-img {
+    height: 60px;
+    margin: 10px 0 0 10px;
 }
 
 .lista-ricetta {
@@ -880,7 +933,7 @@ a {
 
 
 
-
+/*
 .scegli-farmacia-asti {
     width: 90%;
     position: fixed;
@@ -934,6 +987,6 @@ a {
     margin-bottom: 20px;
     color: $blue;
 }
-
+*/
 
 @import 'sass/min-width_480.scss';

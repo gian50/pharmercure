@@ -45,7 +45,7 @@ Template.Cart.events({
 		Session.set('mostra-farmacie-asti','');
 	},
 	'click .inoltra-ordine-btn': function() {
-		/*if(Carrello.find().fetch().length != 0){
+		if(Carrello.find().fetch().length != 0){
 			if(Session.get('currentCap') != ''){
 				Ordini.insert({ cap: Session.get('currentCap'), cart: Carrello.find().fetch(), createdAt: new Date(), user: Meteor.userId(), status: "In attesa"});
 				//Session.set('confermaOrdineOpen', 'conferma-ordine-open');
@@ -59,8 +59,8 @@ Template.Cart.events({
 			
 		}else {
 			alert("Carrello vuoto. Selezionare almeno un prodotto per effettuare l'ordine."); 
-		}*/
-		Session.set('mostra-farmacie-asti','scegli-open');
+		}
+		//Session.set('mostra-farmacie-asti','scegli-open');
 	},
 	'click .img-farmacia': function() {
 		if(Carrello.find().fetch().length != 0){

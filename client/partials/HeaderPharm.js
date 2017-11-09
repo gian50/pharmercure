@@ -7,8 +7,8 @@ Template.HeaderPharm.onCreated(function() {
 Template.HeaderPharm.events({
 	'click .login-toggle': ()=> {
 			if(Meteor.userId()) {
-				Meteor.logout();
-				alert('Logout');
+				console.log('ciao')
+				FlowRouter.go('/utente');
 				Session.set('nav-toggle','');
 			} else {
 				Session.set('nav-toggle','open');

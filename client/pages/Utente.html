@@ -1,11 +1,22 @@
 <template name="Utente">
+	{{#if user}}
+	<img src="logo.png" class="head-img">
 	<div class="user-info-container">
-		<h2>Info utente</h2>
-		<div>Nome: {{user.profile.nome}}</div>
-		<div>Cognome: {{user.profile.cognome}}</div>
-		<div>Email: {{email.address}}</div>
-		<div>Indirizzo: {{user.profile.indirizzo}}</div>
-		<div>Telefono: {{user.profile.telefono}}</div>
-		<div>Codice Fiscale: {{user.profile.codiceFiscale}}</div>
+		<h2>I miei dettagli</h2>
+		<h3>{{user.profile.nome}} {{user.profile.cognome}}</h3>
+		<div>{{email.address}}</div>
+		<div class="change-pwd">CAMBIA LA PASSWORD</div>
+		<div class="profile-data">{{user.profile.nome}} <div class="edit-icon"></div></div>
+		<div class="profile-data">{{user.profile.cognome}} <div class="edit-icon"></div></div>
+		<div class="profile-data">{{user.profile.indirizzo}} <div class="edit-icon"></div></div>
+		<div class="profile-data">{{user.profile.telefono}}<div class="edit-icon"></div></div>
+		<div class="profile-data">{{user.profile.codiceFiscale}}<div class="edit-icon"></div></div>
 	</div>
+	<div class="user-btns">
+		<button>I miei ordini</button>
+		<button class="logout-btn">Logout</button>
+	</div>
+	{{ else }}
+	<div>non autorizzato</div>
+	{{/if}}
 </template>
